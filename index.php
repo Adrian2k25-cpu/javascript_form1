@@ -5,7 +5,7 @@
 
 	<body style="background-color: black; color: #FFF;">
 		<h1>Siomai Rice</h1>
-	<table id="student_table">
+	<table id="student_table" border="1">
 	</table>
 
 		<script>
@@ -28,12 +28,14 @@
 	const inputLastName = document.createElement("Input");
 	inputLastName.type="text";
 	inputLastName.placeholder="Inster Last Name";
+	inputLastName.name="last_name";
 
 	row2col1.append (inputLastName);
 
 	const inputFirstName = document.createElement("input");
 	inputFirstName.type="text";
 	inputFirstName.placeholder="Insert First Name";
+	inputFirstName.name="first_name";
 
 	row2col2.append (inputFirstName);
 
@@ -47,6 +49,14 @@
 	inputSubmit.value="Create Record";
 	
 	row3col1.append(inputSubmit);
+	
+	const studentForm = document.createElement("form");
+	studentForm.append(studentTable);
+	studentForm.action="create.php";
+	studentForm.method="POST";
+	
+	body = document.getElementsByTagName("body")[0];
+	body.append(studentForm);
 
 		</script>
 	</body>
